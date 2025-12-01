@@ -1,0 +1,5 @@
+things to create
+basic ui
+basic functions
+authentication
+fix up the ui
