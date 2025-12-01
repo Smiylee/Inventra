@@ -1,0 +1,69 @@
+{
+  "name": "SmartStore",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Store App",
+  "author": "Nonso",
+  "license": "ISC",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon ./home-page/app.mjs",
+    "build": "electron-builder",
+    "dist": "electron-builder",
+    "postinstall": "npx prisma generate",
+    "prisma:studio": "npx prisma studio",
+    "prisma:push": "npx prisma db push",
+    "prisma:migrate": "npx prisma migrate dev"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.17.1",
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^2.2.0",
+    "connect-sqlite3": "^0.9.16",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "electron-is-dev": "^3.0.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "@electron/packager": "^19.0.1",
+    "@tauri-apps/cli": "^2.9.3",
+    "electron": "^28.3.3",
+    "electron-builder": "^26.0.12",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.17.1"
+  },
+  "build": {
+    "appId": "com.store.app",
+    "productName": "SmartStore",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "home-page/**/*",
+      "main.js",
+      "preload.js",
+      "node_modules/**/*",
+      "package.json",
+      "prisma/schema.prisma"
+    ],
+    "extraResources": [
+      {
+        "from": "prisma/store.db",
+        "to": "store.db"
+      },
+      {
+        "from": "prisma/migrations",
+        "to": "prisma/migrations"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  }
+}
