@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "matplotlib": "^1.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix Inventra run start",
+    "dev": "npm --prefix Inventra run dev",
+    "test": "npm --prefix Inventra run test",
+    "build": "npm --prefix Inventra run build",
+    "dist": "npm --prefix Inventra run dist"
+  }
+}
